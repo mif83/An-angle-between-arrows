@@ -1,6 +1,3 @@
-/**
- * Created by user on 25.12.16.
- */
 var angularObj = {
     minuteArrowCorner: 0,
     hourArrowCorner: 0
@@ -17,16 +14,16 @@ function calcCorner(str){
     if (time[0]>=12) {
         time[0] = time[0]-12;
     } ;
-    //одна минута это 360/60 = 6 градусов
+
     angularObj.minuteArrowCorner = time[1]*6;
-    // учитываем отклонение часовой стрелки, 5 делений минут между каждым часом
+
     angularObj.hourArrowCorner = time[0]*6*5 + Math.round(time[1]*5*6/60);
     diffCorner = Math.abs(angularObj.minuteArrowCorner - angularObj.hourArrowCorner);
 
     return diffCorner > 180 ? Math.abs(360 - diffCorner) : diffCorner ;
 };
 function showCorner(str){
-    document.getElementById("result").innerHTML = "Результат = " + str + "&deg;";
+    document.getElementById("result").innerHTML = "Result = " + str + "&deg;";
 };
 function showClok(){
     console.log("showClok");
